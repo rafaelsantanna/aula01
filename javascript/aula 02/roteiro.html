@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    1 - Forçar erro de calculo IMC mudando valor da TD para mostrar as cadas decimais
+    2 - Explicar o IF(true e false)
+    3 - Validar altura e Peso
+    4 - Criar variaveis booleanas para validar o calculo IMC apenas se validar peso e altura
+    5 - Se peso e/ou altura não for válido mude também o texto da TD com a mensagem de erro
+    <!-- Operadores lógicos até aqui -->
+    <!-- item 6 começa em 3.1 -->
+
+    <script>
+        // 3 - Valdidar altura e peso
+        // fazer validação em duas linhas para mostrar operador ||
+        if(peso < 0) {
+            console.log('peso invalido');
+        }
+        if(peso > 1000) {
+            console.log('peso invalido');
+        }
+
+        // || Lógico
+        if(peso <= 0 || peso >= 1000) {
+            console.log('peso invalido');
+        }
+        if(altura <= 0 || altura >= 4.00) {
+            console.log('altura invalido');
+        }
+
+        //---------------------------------------------------------
+
+        //4 - variaveis booleanas
+        pesoEhValido = true;
+        alturaEhValida = true;
+
+        if(peso <= 0 || peso >= 1000) {
+            console.log('peso invalido');
+            pesoEhValido = false;
+        }
+        if(altura <= 0 || altura >= 4.00) {
+            console.log('altura invalido');
+            alturaEhValida = false; 
+        }
+        //&& Lógico
+        if(alturaEhValida && pesoEhValido) {
+            var imc = peso / (altura * altura);
+            tdImc.textContent = imc;
+        }
+        
+        //---------------------------------------------------------
+        
+        //5 - colocar dentro do if de validação
+        // Mostrar os dois casos de erro
+        tdImc.textContent = "Altura Inválida";
+        tdImc.textContent = "Peso Inválida";
+    </script>
+</body>
+</html>
