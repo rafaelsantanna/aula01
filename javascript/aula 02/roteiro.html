@@ -77,12 +77,76 @@
 
     <!-- 5. Boas Práticas com Javascript -->
     11 - Quebrando o código em arquivos diferentes:
+        -organizar o código, dividir o código por funcionalidades;
+        -Separar a parte que calcula IMC e a parte que interage com formulário;
+        -Criar arquivo form.js e colocar o código lá
+        -renomer principal.js para calcula-imc.js
 
     12 - Criando funções:
-
+        -Separar as funcionalidades em funções, existem 3 funções possiveis;
+        -criar o imcTd.textContent = calculaImc(peso, altura);
+        -criar function:
+            function calculaImc(peso, altura) {
+                var imc = 0;
+                imc = peso/(altura * altura);
+                return imc;
+            }
+            passar o toFiex para a função calcula imc também
+        -voltar no form.js e agora também passar o valor do imc utilizando essa function que foi criada
+        
     13 - Criando um objeto paciente:
+        -criar função para obter dados do formulário:
+            function obtemPacienteDoFormulario(form){
+                var nome = form.nome.value;
+                var peso = form.altura.value;
+                ...
+            }
+        -criar objeto paciente e explicar objeto:
+            var paciente = {
+                nome: form.nome.value,
+                altura: form.altura.value,
+                ...,
+                imc: calculaImc(form.peso.value, form.altura.value)
+            }
+            return paciente
+        - instanciar a função obterPaciente onde era feito antes:
+            var paciente = obterPaciente(form);
+        - dar um console na variavel com objeto paciente para mostrar o objeto, dar um console em um valor do objeto
 
     14 - Melhorando ainda mais o código:
+        - criar função montaTr():
+            function montarTr(paciente) {
+                var pacientTr = document.createElement("tr");
+                
+                ....
+                
+                return pacienteTr;
+            }
+            colocar todo o código já pronto ai dentro e refatorar
+            antes: nomeTd.textContent = nome;
+            depois: nomeTd.textContent = paciente.nome;
+            colocar também o paciente.imc
+        - chamar a função lá em cima junto com as outras duas:
+            var pacienteTr = montarTr(paciente);
+        -testar o formulário para ver se está tudo ok;
+        -mostrar no devTools a estrutura das linhas adicionada(Sem classes)
+        -adicionar as classes do tr e td dentro da função montaTr()
+        -Mostrar um exemplo adicionando a classe nas TD na função montaTr
+        -depois disso crie uma função montarTd():
+            function montaTd(dado, classe) {
+                var td = document.createElement('td');
+                td.texContent = dado;
+                td.classList.add(classe);
+                return td;
+            }
+            chamar essa função dentro de montaTr:
+                var pedoTd = montaTd(paciente.peso, 'info-peso');
+            mostrar o html com as classes agora
+        -da para limpar ainda mais o codigo:
+            antes:var nomeTd = montarTd(paciente.nome, 'info-nome');
+            depois:pacienteTr.appendChild(montarTd(paciente.nome, 'info-nome'));
+        -após adicionar o paciente, limpe o form:
+            form.reset() logo após a adição na tabela;
 
     <script>
         // 3 - Valdidar altura e peso
