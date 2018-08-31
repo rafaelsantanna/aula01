@@ -7,36 +7,82 @@
     <title>Document</title>
 </head>
 <body>
-    0 - Explicar os elementos HTML da tabela
-    1 - Forçar erro de calculo IMC mudando valor da TD para mostrar as cadas decimais
-    2 - Explicar o IF(true e false)
-    3 - Validar altura e Peso
-    4 - Criar variaveis booleanas para validar o calculo IMC apenas se validar peso e altura
-    5 - Se peso e/ou altura não for válido mude também o texto da TD com a mensagem de erro
+    0 - Explicar os elementos HTML da tabela;
+    1 - Forçar erro de calculo IMC mudando valor da TD para mostrar as cadas decimais;
+    2 - Explicar o IF(true e false);
+    3 - Validar altura e Peso;
+    4 - Criar variaveis booleanas para validar o calculo IMC apenas se validar peso e altura;
+    5 - Se peso e/ou altura não for válido mude também o texto da TD com a mensagem de erro;
     <!-- Operadores lógicos até aqui -->
 
-    6 - Utilizar o for para percorrer pacientese mostrar imc de todos:
-        -trocar a variavel pacientes para pacientes
-        -mostrar a diferença do querySelector para querySelectorAll,
-        -mostrar o console.log da variavel "I" no console,
-        -mostrar o array de pacientes no console.log,
-        -mostrar o length e mostrar o array de pacientes[i] no console,
-        -colocar todo o código que calcula o imc  dentro do for,
-        -dentro do for istanciar a variavel paciente = pacientes[i] para não precisar
-        alterar o restante do código que já usa a variavel paciente,
-        -demostrar o toFixed(2) no console e aplicar na variavel imc
+    <!-- 3. Arrays,Loop e Estilos -->
+    6 - Replicando a validação e o cálculo do IMC para todos os pacientes:
+        -trocar a variavel pacientes para pacientes;
+        -mostrar a diferença do querySelector para querySelectorAll;
+        -mostrar o console.log da variavel "I" no console;
+        -mostrar o array de pacientes no console.log;
+        -mostrar o length e mostrar o array de pacientes[i] no console;
+        -colocar todo o código que calcula o imc  dentro do for;
+        -dentro do for istanciar a variavel paciente = pacientes[i] para não precisar;
+        alterar o restante do código que já usa a variavel paciente;
+        -demostrar o toFixed(2) no console e aplicar na variavel imc;
     
-    7- Aplicar estilos com JS:
+    7 - Aplicar estilos com JS:
         -pintar a linha quando der algum erro na validação de peso e altura
-        paciente.style.color = red, explicar o nome composto backgroundColor
+        paciente.style.color = red, explicar o nome composto backgroundColor;
         -mostrar a importancia de deixar o que diz respeito a estilo para o css
-        explicar se por acaso mudar a cor no JS então vai ter que mudar em tudo,
-        -criar uma classe paciente-invalido e setar o estilo,
-        utilizar paciente.classList.add('paciente-invalido')
+        explicar se por acaso mudar a cor no JS então vai ter que mudar em tudo;
+        -criar uma classe paciente-invalido e setar o estilo
+        utilizar paciente.classList.add('paciente-invalido');
 
-    <!-- 4- Eventos, Formulário..... -->
-    8-
+    <!-- 4. Eventos, Formulário..... -->
+    8 - Escutando eventos:
+        -Disponibilizar o formulário de adição de paciente para Download, colocar o código depois da tag main;
+        -Escutar evento de click, fazer algum exemplo basico:
+            titulo.addEventListener('click', mostraMensagem);
+            function mostraMensagem();
+        -Depois desse exemplo, mostrar a função anonima(nao tem nome):
+            titulo.addEventListener('click', function(){});
+        -adicionar paciente:
+            botaoAdicionar.addEventListener('click', function() {
+                console.log('oi cliquei no botão');
+            });
+            vai dar erro por estar dentro de um formulário, explique o comportamento padrão do formulário.
 
+    9 - Evitando o comportamento padrão de um evento:
+        -Previnir o evento do botão:
+            event.preventDefault();
+
+    10 - Adicionando pacientes na tabela:
+        -pegar dados do formulário ao clicar:
+            var form = document.querySelector('#form');
+            console.log(form);
+        -recuperar os valores do formulário utilizando o name do input:
+            console.log(form.altura)
+            mostrar um exemplo utilizando também o querySelector
+        -mostrar diferença de value e textContent
+        -criar variaveis com os valores:
+            mostrar variaveis no console;
+        -montar a linha que vai ser adicionada na tabela:
+            var pacienteTr = document.createElement('tr');
+            var nomeTd = document.createElement('td');
+            mostrar os elementos no console;
+        -atribuir os valores nos elementos criado;
+        -adicionar os elementos TD na TR:
+            pacienteTr.appendChild(nomeTd);
+        -adicionar a TR no Table:
+            var tabela = querySelector('#tabela-pacientes');
+            tabela.appendChild(pacienteTr);
+        
+
+    <!-- 5. Boas Práticas com Javascript -->
+    11 - Quebrando o código em arquivos diferentes:
+
+    12 - Criando funções:
+
+    13 - Criando um objeto paciente:
+
+    14 - Melhorando ainda mais o código:
 
     <script>
         // 3 - Valdidar altura e peso
