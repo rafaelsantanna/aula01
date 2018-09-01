@@ -1,13 +1,14 @@
-Em contrução:  
+# Projeto Exemplo  
 
-0 - fazer validação de altura e peso (booleanos) (operador OU)  
-2 - fazer if em duas linhas para mostrar operadores lógicos  
-3 - mudar os valores no HTML para mostrar a validação  
-4 - criar variáveis de validação de peso e altura (true)  
-5 - validar peso e altura (operador &&) e calcular somente se for true senão mostra mensagem  
-6 - mostrar o for colocando calor fixo e depois com length  
-7 - mostrar o paciente pela sua posição do array  
-8 - utilizar o for para replicar em todos os pacientes  
-9 - mostrar o método tofixed para limitar número de casas decimais  
+Roteiro Aula:  
 
-2.3 > 5  
+1- colocar a tag script em cima para mostrar que o navegador ler de cima para baixo  
+2 textcontent - mudar o título  
+3-selecionar um elemento HTML e mudar o texto para mostrar o uso de identificador  
+4-selecionar único paciente utilizando um ID na TR  
+5-selecionar peso  
+6-mostrar conteúdo das variáveis  
+7-mostrar cálculo imc sem parênteses para dar errado  
+8- mostrar o certo e enfim colocar o IMC do paciente na tabela  
+
+OBS: Essa aula foi dividida com a aula de git, por isso não teve muito conteudo.
