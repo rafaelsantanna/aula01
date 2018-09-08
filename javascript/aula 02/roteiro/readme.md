@@ -1,5 +1,3 @@
-Em contrução:  
-
 0 - fazer validação de altura e peso (booleanos) (operador OU)  
 2 - fazer if em duas linhas para mostrar operadores lógicos  
 3 - mudar os valores no HTML para mostrar a validação  
@@ -10,4 +8,4 @@ Em contrução:
 8 - utilizar o for para replicar em todos os pacientes  
 9 - mostrar o método tofixed para limitar número de casas decimais  
 
-2.3 > 5  
+2.3 > 3

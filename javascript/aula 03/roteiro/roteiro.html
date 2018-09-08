@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 4. Eventos, Formulário..... -->
+     1 - Escutando eventos:
+     -Disponibilizar o formulário de adição de paciente para Download, colocar o código depois da tag main;
+     -Escutar evento de click, fazer algum exemplo basico:
+         titulo.addEventListener('click', mostraMensagem);
+         function mostraMensagem();
+     -Depois desse exemplo, mostrar a função anonima(nao tem nome):
+         titulo.addEventListener('click', function(){});
+     -adicionar paciente:
+         botaoAdicionar.addEventListener('click', function() {
+             console.log('oi cliquei no botão');
+         });
+         vai dar erro por estar dentro de um formulário, explique o comportamento padrão do formulário.
+
+        2 - Evitando o comportamento padrão de um evento:
+            -Previnir o evento do botão:
+                event.preventDefault();
+
+        3 - Adicionando pacientes na tabela:
+            -pegar dados do formulário ao clicar:
+                var form = document.querySelector('#form');
+                console.log(form);
+            -recuperar os valores do formulário utilizando o name do input:
+                console.log(form.altura)
+                mostrar um exemplo utilizando também o querySelector
+            -mostrar diferença de value e textContent
+            -criar variaveis com os valores:
+                mostrar variaveis no console;
+            -montar a linha que vai ser adicionada na tabela:
+                var pacienteTr = document.createElement('tr');
+                var nomeTd = document.createElement('td');
+                mostrar os elementos no console;
+            -atribuir os valores nos elementos criado;
+            -adicionar os elementos TD na TR:
+                pacienteTr.appendChild(nomeTd);
+            -adicionar a TR no Table:
+                var tabela = querySelector('#tabela-pacientes');
+                tabela.appendChild(pacienteTr);
+            
+
+        <!-- 5. Boas Práticas com Javascript -->
+        4 - Quebrando o código em arquivos diferentes:
+            -organizar o código, dividir o código por funcionalidades;
+            -Separar a parte que calcula IMC e a parte que interage com formulário;
+            -Criar arquivo form.js e colocar o código lá
+            -renomer principal.js para calcula-imc.js
+
+        5 - Criando funções:
+            -Separar as funcionalidades em funções, existem 3 funções possiveis;
+            -mudar o valor da variavel para imcTd.textContent = calculaImc(peso, altura);
+            -criar function:
+                function calculaImc(peso, altura) {
+                    var imc = 0;
+                    imc = peso/(altura * altura);
+                    return imc;
+                }
+                passar o toFixed para a função calcula imc também
+            -voltar no form.js e agora também passar o valor do imc utilizando essa function que foi criada
+            
+        6 - Criando um objeto paciente:
+            -criar função para obter dados do formulário:
+                function obtemPacienteDoFormulario(form){
+                    var nome = form.nome.value;
+                    var peso = form.altura.value;
+                    ...
+                }
+            -criar objeto paciente e explicar objeto:
+                var paciente = {
+                    nome: form.nome.value,
+                    altura: form.altura.value,
+                    ...,
+                    imc: calculaImc(form.peso.value, form.altura.value)
+                }
+                return paciente
+            - instanciar a função obterPaciente onde era feito antes:
+                var paciente = obterPaciente(form);
+            - dar um console na variavel com objeto paciente para mostrar o objeto, dar um console em um valor do objeto
+
+        7 - Melhorando ainda mais o código:
+            - criar função montaTr():
+                function montarTr(paciente) {
+                    var pacientTr = document.createElement("tr");
+                    
+                    ....
+                    
+                    return pacienteTr;
+                }
+                colocar todo o código já pronto ai dentro e refatorar
+                antes: nomeTd.textContent = nome;
+                depois: nomeTd.textContent = paciente.nome;
+                colocar também o paciente.imc
+            - chamar a função lá em cima junto com as outras duas:
+                var pacienteTr = montarTr(paciente);
+            -testar o formulário para ver se está tudo ok;
+            -mostrar no devTools a estrutura das linhas adicionada(Sem classes)
+            -adicionar as classes do tr e td dentro da função montaTr()
+            -Mostrar um exemplo adicionando a classe nas TD na função montaTr
+            -depois disso crie uma função montarTd():
+                function montaTd(dado, classe) {
+                    var td = document.createElement('td');
+                    td.texContent = dado;
+                    td.classList.add(classe);
+                    return td;
+                }
+                chamar essa função dentro de montaTr:
+                    var pedoTd = montaTd(paciente.peso, 'info-peso');
+                mostrar o html com as classes agora
+            -da para limpar ainda mais o codigo:
+                antes:var nomeTd = montarTd(paciente.nome, 'info-nome');
+                depois:pacienteTr.appendChild(montarTd(paciente.nome, 'info-nome'));
+            -após adicionar o paciente, limpe o form:
+                form.reset() logo após a adição na tabela;
+
+
+                Para casa: 
+                    - fazer Validação de formulários;
+                    - Remoção, Delegação e Animação;
+
+                    Vou passar durante a semana....       
+</body>
+</html>
