@@ -1,4 +1,6 @@
-Essa aula vai ser:
+Essa aula vai ser:  
 
-8. Filtrando uma tabela;
-9. Buscando pacientes com AJAX;
+Revisar o que foi feito no trabalho pra casa;  
+  
+8. Filtrando uma tabela;  
+9. Buscando pacientes com AJAX;  
