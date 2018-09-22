@@ -1,0 +1,64 @@
+Remoção, Delegação e Animação;
+
+1 - Remoção com duplo click:
+	- criar arquivo remover-paciente.js e chamar no html:
+			
+		var pacientes = document.querySelectorAll(".pacientes");
+		console.log(pacientes);
+		
+		--percorrendo pacientes e adicionando escutador de eventos
+		pacientes.forEach(function(paciente) {
+			paciente.addEventListener("dblclick", function() {
+				console.log('fui clicado com um duplo click');
+				--demonstrar o metodo remove() removendo o titulo da página;
+				this.remove();	//Explicar this
+			});
+		});
+		
+		-- Após demonstrar o remove(), mostre agora o problema ao adicionar um paciente novo que não tem o addEventListener quando é clicado;
+		
+
+2 - Aplicar remoção também para os pacientes adicionados depois:
+	- Explicar o event bubbling;
+	- comentar todo o pacientes.forEach():
+	- em cima do forEach() comentado escreve este código:
+	
+		var tabela = document.querySelector('#tabela-pacientes');
+		
+
+		--demonstrar que ao clicar em qualquer lugar da tabela ele executa, e depois demonstrar que da para pegar o elemento que foi clicado com event.target;	
+		tabela.addEventListener(function(event){
+			console.log('fui clicado');
+			console.log(this); 
+			console.log(event.target);
+
+			event.target.remove(); // Este comando vai remover o elemento que foi clicado, demonstre esse codigo e depois apague;
+
+			var alvoEvento = event.target;
+			var paiDoAlvo = alvoEvento.parentNode;
+			paiDoAlvo.remove();
+
+			//ou apenas essa linha
+			event.target.parentNode.remove();
+		});
+		
+		-- depois que demonstrar esse código acima, agora demonstre que após adicionar um paciente também vamos conseguir remover;
+
+3 - Animando a remoção do paciente:
+	- Adiciona um efeito de fade;
+		criar animação no arquivo css:
+			.fadeOut {
+				opacity: 0;
+				transition: 1s;
+			}
+
+	- remover-paciente.js
+		-- Comente a linha de remoção para demonstrar o efeito fadeOut;
+		-- Descomente a linha de remoção e mostre que agora mesmo assim não está aplicando o efeito, e então demonstro o setTimeout();
+		-- Crie um setTimeout() e coloque a função de remoção dentro;
+
+		tabela.addEventListener(function(event){
+			
+			event.target.parentNode.classList.add("fadeOut");
+			event.target.parentNode.remove();
+		});
