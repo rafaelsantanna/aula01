@@ -1,0 +1,76 @@
+01 - Filtrando os pacientes da tabela;
+
+	- Criar um input de pesquisa em cima da tabela;
+		<label for="filtrar-tabela>Filtre</label>"
+		<input type="text" name="filtro" id="filtrar-tabela" placeholder="digite o nome do paciente">
+
+	- Aplicar um estilo
+		#filtrar-tabela {
+			width: 200px;
+			height: 35px;
+			margin-bottom:10px;
+		}
+
+	- Criar arquivo js/filtra.js
+		var campoFiltro = document.querySelector("#filtrar-tabela");
+		
+		campoFiltro.addEventListener("inyput", function(){
+			-- demonstrar que cada digito chama essa função 
+			console.log("digitaram no campo");
+
+			-- demonstrar no console cada valor digitado
+			console.log(this.value);
+			
+			-- Selecionar todos os pacientes da tabela
+			-- percorrer eles e verificar se o nome na tabela é diferente no input, se for então esconda a linha;
+			var pacientes = document.querySelectorAll(".pacientes");
+
+			for(var i = 0; i < pacientes.length; i++){
+				var paciente = pacientes[i];
+				var tdNome = paciente.querySelector('.info-nome');
+				var nome = tdNome.textContent;
+				console.log(nome);
+
+				-- Criar a classe .invisivel no css e coloque um display none;
+				-- OBS: Esta lógica somente mostra na tabela quando digita o nome todo do paciente;
+				
+				-- Se nome no input for diferente, dos nomes na tabela, então esconda a linha;
+				if(nome != this.value) {
+					paciente.classList.add('.invisivel');				
+				} else {
+					paciente.classList.remove('.invisivel');				
+				}
+			}
+
+			-- Depois que montar esse for demonstre o funcionamento e demonstre também o problema ao apagar o texto do filtro, tudo fica como invisivel
+			-- Para resolver coloque o for dentro desse if que verifica se existe digito dentro do input para fazer o for somente se digitar
+			
+			if(this.value.length > 0){
+			
+			}
+			-- fazer um else para esse if, para caso limpe o input então remove a classe invisivel de todos os pacientes;
+			else {
+				for(var i = 0; i < pacientes.length; i++){
+					var paciente = pacientes[i];
+					paciente.classList.remove('invisivel');
+				}
+			}
+
+			-- Demonstre que agora ao apagar o texto do input ele remove a classe invisivel;
+			-- Adicione um paciente chamado Tati e escreva tati na pesquisa, e mostre que não está pegando a paciente tatiana;
+
+		});
+
+2 - Melhorar o filtro com Regex(Expressões regulares) para poder filtrar por caracter também:
+		--Demonstrar o exemplio do control+F do vsCode;
+		
+		dentro do FOR e embaixo da linha var nome = tdNome.textContent; adicione:
+			var expressao = new RegExp(this.value, "i"); / i - case insensitive
+			no if na linha de baixo ao inves de comparar o nome inteiro, compare a expressão;
+			if(expressao.test(nome)) // A função test serve para testar a expressão regular;
+			Demonstre funcionando, e agora está funcionando, só que a lógica está invertida, então negue o IF;
+			
+		
+		
+
+		
