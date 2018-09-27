@@ -14,7 +14,7 @@
 	- Criar arquivo js/filtra.js
 		var campoFiltro = document.querySelector("#filtrar-tabela");
 		
-		campoFiltro.addEventListener("inyput", function(){
+		campoFiltro.addEventListener("input", function(){
 			-- demonstrar que cada digito chama essa função 
 			console.log("digitaram no campo");
 
